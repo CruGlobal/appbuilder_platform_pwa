@@ -276,12 +276,12 @@ export default class ABViewRule {
       this.AB = object.AB;
    }
 
-   // formLoad(form) {
-   //    this.currentForm = form;
-   //    this.listActions.forEach((a) => {
-   //       a.formLoad(form);
-   //    });
-   // }
+   formLoad(form) {
+      this.currentForm = form;
+      this.listActions.forEach((a) => {
+         a.formLoad(form);
+      });
+   }
 
    processPre(options = {}) {
       let isValid = this.isValid(options.data);

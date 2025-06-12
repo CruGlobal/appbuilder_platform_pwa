@@ -1,0 +1,13 @@
+name: Merging Rules
+on:
+   # Run on pull requests into the #master branch
+   pull_request:
+      branches: [master]
+
+jobs:
+   e2e-tests:
+      uses: ./.github/workflows/e2e-test.yml
+      with:
+         app_id: ${{ vars.GS_DEV_APP_ID }}
+      secrets:
+         app_secret: ${{ secrets.GS_DEV_APP_PK }}

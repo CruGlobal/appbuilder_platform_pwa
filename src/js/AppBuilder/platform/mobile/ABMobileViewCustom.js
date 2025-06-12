@@ -14,7 +14,9 @@ export default class ABMobileViewCustom extends ABMobileViewCustomCore {
          this._init = new Function(
             "$AB",
             "$DC",
-            `return (async () => { ${this.settings.initCode} })()`
+            `return (async () => { 
+               ${this.settings.initCode}
+            })()`
          );
       } else {
          this._init = new Function(
@@ -29,7 +31,9 @@ export default class ABMobileViewCustom extends ABMobileViewCustomCore {
             "$AB",
             "$h",
             "$DC",
-            `return (() => { ${this.settings.htmlCode} })()`
+            `return (() => { 
+               ${this.settings.htmlCode} 
+            })()`
          );
       } else {
          this._html = new Function(
@@ -49,6 +53,19 @@ export default class ABMobileViewCustom extends ABMobileViewCustomCore {
    }
 
    async init() {
+      // prepare our DataCollections
+      // For Framework7's templates to recoginze updates to the data,
+      // the store.dispatch() needs to be called during the template
+      // rendering process.
+      // So we will do that here and make sure the DCs are loaded before
+      // entering the init() routine.
+      let promises = [];
+      Object.keys(this.$DC).forEach((key) => {
+         let dc = this.$DC[key];
+         promises.push(this.AB.$store.dispatch("getAppBuilderData", dc.id));
+      });
+      await Promise.all(promises);
+
       // Call the custom init function if it exists
       if (this._init) {
          await this._init(this.AB, this.$DC);

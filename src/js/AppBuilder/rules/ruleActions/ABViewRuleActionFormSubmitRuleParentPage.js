@@ -84,7 +84,8 @@ export default class ABViewRuleActionFormSubmitRuleParentPage extends ABViewRule
          var pageParent = pageCurrent.pageParent();
 
          // redirect page
-         options.form.changePage(pageParent.id);
+         // options.form.changePage(pageParent);
+         pageParent.show();
 
          resolve();
       });

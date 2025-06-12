@@ -55,6 +55,7 @@ export default class ABMobileViewFormFile extends ABMobileViewFormFileCore {
 
       // don't upload when not selected.
       let file = formData.get("file");
+      if (file == undefined || file == null) return;
       if (file.name == "" && file.size == 0) return;
 
       try {

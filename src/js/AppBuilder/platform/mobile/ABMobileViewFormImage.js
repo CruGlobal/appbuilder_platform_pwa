@@ -56,15 +56,13 @@ export default class ABMobileViewFormImage extends ABMobileViewFormImageCore {
 
    inputElementUpload($h) {
       let $inputElement = $h`
-         <input
-            id=${this.idUpload}
-            type="file"
-            name="file"
-            class="button button-big button-fill"
-            accept="image/*"
-            capture="environment"
-         />
-      `;
+      <input 
+         id=${this.idUpload} 
+         name="file"
+         accept="image/*"
+         type="file"
+         placeholder=""
+      />`;
 
       this.updateProperties($inputElement);
 

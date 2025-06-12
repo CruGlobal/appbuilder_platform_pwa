@@ -34,6 +34,10 @@ export default class ABMobilePage extends ABMobilePageCore {
          ignoreCache: true,
       });
    }
+   hide() {
+      // TODO Does this need more?
+      this.AB.$f7.view.main.router.back();
+   }
 
    viewHTML($h) {
       let allResults = [];

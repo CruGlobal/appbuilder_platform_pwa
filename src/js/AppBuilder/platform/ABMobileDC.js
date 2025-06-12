@@ -76,7 +76,7 @@ dc.define("dataFeed", (value, params) => {
    }
 
    stateValues() {
-      if (!this.DC.$state) return [];
+      if (!this.DC.$state) return (this.DC.$state = []);
       return this.DC.$state[this.DC.id];
    }
 
@@ -173,6 +173,8 @@ dc.define("dataFeed", (value, params) => {
    getItem(id) {
       var PK = this.PK;
       var allValues = this.stateValues();
+      if (id == null || allValues == null || allValues.length === 0 )
+         return null;
       return allValues.find((v) => this.id(v) == id);
    }
 
@@ -215,7 +217,13 @@ dc.define("dataFeed", (value, params) => {
       let pos = data.pos || 0;
       let tc = data.total_count || 0;
 
-      if (Array.isArray(dataIn) && dataIn.length == 0) return;
+      if (Array.isArray(dataIn) && dataIn.length == 0) {
+         if (tc == 0) {
+            // this is an actual empty data set.
+            this.clearAll();
+         }
+         return;
+      }
 
       if (pos == 0) {
          this.setValues(dataIn);
@@ -281,7 +289,6 @@ dc.define("dataFeed", (value, params) => {
    /*
 
    attachEvent(str, fn() ) // onAfterCursorChange
-   
    updateItem(d.id,updateItemData);
 
    loadNext(count, start);

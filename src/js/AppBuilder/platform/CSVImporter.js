@@ -1,7 +1,7 @@
 var L = null;
 // multilingual Label fn()
 
-module.exports = class CSVImporter {
+export default class CSVImporter {
    constructor(Label) {
       // {ABMultilingual.label()} function.
       //

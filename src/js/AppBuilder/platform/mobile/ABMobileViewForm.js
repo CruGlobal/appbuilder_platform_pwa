@@ -24,11 +24,11 @@ export default class ABMobileViewForm extends ABMobileViewFormCore {
             v.valueLoad?.(rowData);
          });
          let id = this.idID;
-         this.$form.prepend(`<input 
+         this.$form.prepend(`<input
                        id="${id}"
-                       name="id" 
-                       readonly 
-                       type="hidden" 
+                       name="id"
+                       readonly
+                       type="hidden"
                        placeholder=""
                     />`);
          let input = this.$form.find(`#${id}`);
