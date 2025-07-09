@@ -4,8 +4,8 @@
   font-style: normal;
   font-weight: 400;
   src: local('Material Icons'), local('MaterialIcons-Regular'),
-    url(/assets/mobile/fonts/material-icons.woff2) format('woff2'),
-    url(/assets/mobile/fonts/material-icons.woff) format('woff');
+    url('/assets/mobile/fonts/material-icons.woff2') format('woff2'),
+    url('/assets/mobile/fonts/material-icons.woff') format('woff');
 }
 .material-icons {
   font-family: 'Material Icons';

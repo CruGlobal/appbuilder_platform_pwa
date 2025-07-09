@@ -57,6 +57,7 @@ export default class ABMobilePage extends ABMobilePageCore {
             const L = this.AB.Label();
             const title = this.label;
             let allGetters = {};
+            // this.inboxBadge = 0;
 
             // NOTE: this can be redundant, but on the ABDesigner we
             // will load a specific page directly and doing this will
@@ -79,6 +80,14 @@ export default class ABMobilePage extends ABMobilePageCore {
                   allGetters[dc.id] = $store.getters[dc.id];
                }
             });
+
+            const loadInboxBadge = async () => {
+               const inboxConfig = await this.AB.Network.get({
+                  url: "/config/inbox",
+               });
+               this.inboxBadge = (inboxConfig.inbox || []).length;
+               $update();
+            };
 
             $on("pageInit", async (e, page) => {
                const pendingInit = [];
@@ -107,6 +116,8 @@ export default class ABMobilePage extends ABMobilePageCore {
 
                   pendingInit.push(init());
                });
+
+               pendingInit.push(loadInboxBadge());
 
                await Promise.all(pendingInit);
             });
@@ -212,6 +223,17 @@ export default class ABMobilePage extends ABMobilePageCore {
                      <div class="title-large-text">${title}</div>
                   </div>`;
             };
+            ///
+            /// Inbox
+            ///
+            const inbox = () => {
+               if (this.inboxBadge > 0) {
+                  return $h`<a href="/inbox" class="link icon-only">
+                        <i class="icon material-icons">mail<span class="badge color-red">${this.inboxBadge}</span></i>
+                     </a>`;
+               }
+               return $h`<a href="/inbox" class="link icon-only"><i class="icon material-icons">mail</i></a>`;
+            };
 
             return () => $h`
          <div class="page" data-name="${this.route}">
@@ -222,6 +244,9 @@ export default class ABMobilePage extends ABMobilePageCore {
                      ${menu()}
                   </div>
                   ${pageTitle()}
+                  <div class="right">
+                    ${inbox()}
+                  </div>
                </div>
             </div>
             <div class="page-content">
