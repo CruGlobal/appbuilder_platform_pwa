@@ -4,8 +4,8 @@ import { FormioToF7 } from "./componants/FormioToF7.js";
 export default (AB) => {
    const L = AB.Label();
    // let lang = AB.Account.language();
-   let inboxMeta = []; // to store inboxMeta
-   let inboxItems = []; // to store inbox items
+   let inboxMeta = {}; // to store inboxMeta
+   let inboxItems = {}; // to store inbox items
    let isLoading = true; // flag to track loading state
 
    async function loadInbox() {
@@ -19,7 +19,7 @@ export default (AB) => {
          inboxMeta.forEach((meta) => {
             inboxItems[meta.id] = {};
             meta.processes.forEach((process) => {
-               // เลือกเฉพาะ items ที่ match definition = process.id
+               // select items only match definition = process.id
                inboxItems[meta.id][process.id] = inbox.filter(
                   (item) => item.definition === process.id
                );
@@ -28,8 +28,8 @@ export default (AB) => {
          // this._inboxData = inboxData;
       } catch (err) {
          console.error("Failed to load inbox:", err);
-         inboxMeta = [];
-         inboxItems = [];
+         inboxMeta = {};
+         inboxItems = {};
       } finally {
          isLoading = false;
          // $jsx.instance.$update();
