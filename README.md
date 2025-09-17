@@ -1,3 +1,4 @@
+[![E2E Tests](https://github.com/CruGlobal/appbuilder_platform_pwa/actions/workflows/e2e-test.yml/badge.svg?branch=master)](https://github.com/CruGlobal/appbuilder_platform_pwa/actions/workflows/e2e-test.yml)
 # AppBuilder PWA
 
 ## Framework7 CLI Options
