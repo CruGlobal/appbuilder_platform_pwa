@@ -39,7 +39,13 @@ class Account extends EventEmitter {
          // If no user and tenant isn't using local auth start
          // the external auth workflow:
          if (tenantConfig.authType !== "login") {
+            const referer = window.location.href;
+            // console.log("referer1 :" + referer);
+            if (referer && referer.includes("/mobile")) {
+               sessionStorage.setItem("refererUrlPWA", referer);
+            }
             window.location.assign("/auth/login");
+            return;
          }
          // Keep going if the tenant is using local auth
       }
