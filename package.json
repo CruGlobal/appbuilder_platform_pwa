@@ -1,7 +1,7 @@
 {
    "name": "appbuilder-pwa",
    "private": true,
-   "version": "1.0.7",
+   "version": "1.0.8",
    "description": "AppBuilder PWA",
    "repository": "",
    "license": "UNLICENSED",
@@ -33,7 +33,7 @@
       "moment": "^2.29.4",
       "nanoid": "^4.0.2",
       "papaparse": "^5.5.3",
-      "semver": "^7.7.2",
+      "semver": "^7.7.3",
       "skeleton-elements": "^4.0.1",
       "swiper": "^9.3.2"
    },
