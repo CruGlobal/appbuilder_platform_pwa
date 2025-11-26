@@ -98,7 +98,6 @@ export default class ABMobileViewFormFile extends ABMobileViewFormFileCore {
       type="file"
       name="file"
       class="upload"
-      accept="image/*"
       style="position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; cursor:pointer;"
     />
   `;
