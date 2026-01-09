@@ -8,25 +8,25 @@ export default class ABProcessTaskServiceAPI extends ServiceAPICore {
    warningsEval() {
       super.warningsEval();
 
-      if (!this.formulaText) {
-         this.warningMessage("is missing a formula.");
-      }
+      // if (!this.formulaText) {
+      //    this.warningMessage("is missing a formula.");
+      // }
 
-      if (this.formulaText) {
-         const hash = {};
-         (this.process.processDataFields(this) || []).forEach((item) => {
-            hash[`{${item.label}}`] = item;
-         });
+      // if (this.formulaText) {
+      //    const hash = {};
+      //    (this.process.processDataFields(this) || []).forEach((item) => {
+      //       hash[`{${item.label}}`] = item;
+      //    });
 
-         let exp = new RegExp(`{[^}]*}`, "g");
-         let entries = this.formulaText.match(exp) || [];
-         entries.forEach((entry) => {
-            if (!hash[entry]) {
-               this.warningMessage(
-                  `could not resolve process value [${entry}]`
-               );
-            }
-         });
-      }
+      //    let exp = new RegExp(`{[^}]*}`, "g");
+      //    let entries = this.formulaText.match(exp) || [];
+      //    entries.forEach((entry) => {
+      //       if (!hash[entry]) {
+      //          this.warningMessage(
+      //             `could not resolve process value [${entry}]`
+      //          );
+      //       }
+      //    });
+      // }
    }
 }
