@@ -98,7 +98,7 @@ export default class ABModel extends ABModelCore {
             return;
          }
 
-         if (this.isCsvPacked(data)) {
+         if (this.isCsvPacked && this.isCsvPacked(data)) {
             let lengthPacked = JSON.stringify(data).length;
             data = this.csvUnpack(data);
 

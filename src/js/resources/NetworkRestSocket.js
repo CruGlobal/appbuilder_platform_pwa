@@ -54,7 +54,6 @@ class NetworkRestSocket extends NetworkRest {
                      let model = obj.model();
                      if (ev != "ab.datacollection.delete") {
                         // if data is packed, then unpack it
-                        let model = obj.model();
                         if (model.isCsvPacked(values)) {
                            let lengthPacked = JSON.stringify(data).length;
                            values = model.csvUnpack(values);
