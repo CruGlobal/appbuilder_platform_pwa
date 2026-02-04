@@ -28,7 +28,7 @@
       "eventemitter2": "^6.4.9",
       "framework7": "^8.0.5",
       "framework7-icons": "^5.0.5",
-      "lodash": "^4.17.21",
+      "lodash": "^4.17.23",
       "material-icons": "^1.13.6",
       "moment": "^2.29.4",
       "nanoid": "^4.0.2",
