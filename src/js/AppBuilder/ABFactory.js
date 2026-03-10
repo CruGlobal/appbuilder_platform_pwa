@@ -104,6 +104,9 @@ class ABFactory extends ABFactoryCore {
    constructor(definitions) {
       super(definitions);
 
+      // PLUGIN code now expects a this.platform
+      this.platform = "pwa";
+
       // Common Reference to Configuration Values
       this.Config = Config;
       let appDiv = document.querySelector("#app");

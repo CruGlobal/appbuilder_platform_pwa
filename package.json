@@ -10,7 +10,7 @@
       "dev": "cross-env NODE_ENV=development vite",
       "build_main": "cross-env NODE_ENV=production vite build && npx workbox generateSW workbox-config.js",
       "postinstall": "cpy --flat ./node_modules/framework7-icons/fonts/*.* ./src/fonts/ && cpy --flat ./node_modules/material-icons/iconfont/*.* ./src/fonts/",
-      "proxy": "./proxy.sh",
+      "proxy": "node proxy-server.js",
       "watch": "webpack-cli --config webpack.dev.js --watch --progress",
       "build": "webpack-cli --config webpack.dev.js --progress",
       "build:update": "npm run postinstall && webpack-cli --config webpack.dev.js --progress",
@@ -26,16 +26,16 @@
       "atomicjs": "^4.4.1",
       "dom7": "^4.0.6",
       "eventemitter2": "^6.4.9",
-      "framework7": "^8.0.5",
+      "framework7": "^9.0.3",
       "framework7-icons": "^5.0.5",
       "lodash": "^4.17.21",
       "material-icons": "^1.13.6",
       "moment": "^2.29.4",
-      "nanoid": "^4.0.2",
+      "nanoid": "^5.1.6",
       "papaparse": "^5.5.3",
       "semver": "^7.7.3",
       "skeleton-elements": "^4.0.1",
-      "swiper": "^9.3.2"
+      "swiper": "^12.1.2"
    },
    "devDependencies": {
       "@babel/core": "^7.22.9",
@@ -44,19 +44,21 @@
       "@babel/preset-react": "^7.22.5",
       "babel-loader": "^9.1.3",
       "clean-webpack-plugin": "^4.0.0",
-      "compression-webpack-plugin": "^10.0.0",
+      "compression-webpack-plugin": "^12.0.0",
+      "copy-webpack-plugin": "^12.0.2",
       "cpy-cli": "^4.2.0",
       "cross-env": "^7.0.3",
       "css-loader": "^5.0.1",
       "eslint": "^8.21.0",
       "eslint-config-prettier": "^8.5.0",
       "eslint-plugin-prettier": "^4.2.1",
+      "express": "^4.21.0",
       "framework7-loader": "^3.0.2",
       "html-loader": "^4.2.0",
       "html-webpack-plugin": "^5.5.0",
+      "http-proxy-middleware": "^3.0.3",
       "less": "^4.1.3",
       "less-loader": "^11.1.3",
-      "local-cors-proxy": "^1.1.0",
       "postcss-preset-env": "^8.3.2",
       "prettier": "^2.2.1",
       "rollup-plugin-framework7": "^1.2.1",
@@ -66,6 +68,11 @@
       "webpack": "^5.74.0",
       "webpack-cli": "^4.10.0",
       "webpack-merge": "^5.8.0",
-      "workbox-cli": "^6.5.4"
+      "workbox-cli": "^7.4.0"
+   },
+   "overrides": {
+      "swiper": "^12.1.2",
+      "serialize-javascript": "^7.0.3",
+      "tmp": "^0.2.4"
    }
 }

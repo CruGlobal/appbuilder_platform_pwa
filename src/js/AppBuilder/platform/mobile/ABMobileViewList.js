@@ -45,8 +45,10 @@ export default class ABMobileViewList extends ABMobileViewListCore {
 
       setTimeout(() => {
          let dc = this.datacollection;
-         let allVals = dc.$state[dc.id];
-         dc.$state[dc.id] = allVals;
+         if (dc) {
+            let allVals = dc.$state[dc.id];
+            dc.$state[dc.id] = allVals;
+         }
       }, 30);
 
       // let dc = this.datacollection;
@@ -72,7 +74,7 @@ export default class ABMobileViewList extends ABMobileViewListCore {
             let L = this.AB.Label();
             this.AB.$f7.dialog.alert(
                L("No rows were effected.  This does not seem right."),
-               L("Error")
+               L("Error"),
             );
             return false;
          }
@@ -101,7 +103,7 @@ export default class ABMobileViewList extends ABMobileViewListCore {
       // if there is a detailPage set, then transition there:
       if (this.settings.linkPageDetail) {
          const DetailPage = this.application.pageByID(
-            this.settings.linkPageDetail
+            this.settings.linkPageDetail,
          );
 
          DetailPage.show(true);
@@ -176,7 +178,7 @@ export default class ABMobileViewList extends ABMobileViewListCore {
                   ${L("Delete")}
                </a>
             </div>
-         </li>`
+         </li>`,
       );
    }
 
@@ -248,7 +250,7 @@ export default class ABMobileViewList extends ABMobileViewListCore {
                         (/* x, i */) => $h`
                         <li>
                            <a href="#">Skeleton text will go here</a>
-                        </li>`
+                        </li>`,
                      )}
                   </ul>
                </div>

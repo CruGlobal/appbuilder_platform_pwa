@@ -2,6 +2,7 @@ const path = require("path");
 const APP = path.resolve(__dirname);
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
    context: APP,
@@ -53,6 +54,22 @@ module.exports = {
       }),
       new CleanWebpackPlugin({
          cleanOnceBeforeBuildPatterns: ["*.js", "*.js.map"],
+      }),
+      new CopyWebpackPlugin({
+         patterns: [
+            {
+               from: "*.{woff,woff2}",
+               context: path.join(APP, "node_modules", "material-icons", "iconfont"),
+               to: "fonts",
+               noErrorOnMissing: true,
+            },
+            {
+               from: "*.{woff,woff2}",
+               context: path.join(APP, "node_modules", "framework7-icons", "fonts"),
+               to: "fonts",
+               noErrorOnMissing: true,
+            },
+         ],
       }),
    ],
    resolve: {
