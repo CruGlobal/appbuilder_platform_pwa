@@ -35,7 +35,8 @@
       "papaparse": "^5.5.3",
       "semver": "^7.7.3",
       "skeleton-elements": "^4.0.1",
-      "swiper": "^12.1.2"
+      "swiper": "^12.1.2",
+      "uuid": "^13.0.0"
    },
    "devDependencies": {
       "@babel/core": "^7.22.9",
