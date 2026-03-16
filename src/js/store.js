@@ -1,6 +1,6 @@
 import { createStore } from "framework7";
 
-export default (AB) => {
+export default (AB, appVersion = "") => {
    const allDCs = AB.datacollections();
 
    const configStore = {
@@ -49,7 +49,7 @@ export default (AB) => {
             };
          },
          getVersion({ state }) {
-            state.version = app.f7.params.version;
+            state.version = appVersion;
          },
       },
    };

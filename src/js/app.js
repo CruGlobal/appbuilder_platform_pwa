@@ -39,7 +39,7 @@ var app = new Framework7({
    el: "#app", // App root element
    component: App(AB), // App main component
    // App store
-   store: store(AB),
+   store: store(AB, version),
    // App routes
    routes: routes(AB),
    version: version,

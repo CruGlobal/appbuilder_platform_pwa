@@ -213,23 +213,6 @@ export default (AB) => {
                         </div>
                         <div class="list list-outline list-strong list-dividers list-translucent">
                            <ul>
-                              <li>
-                                 <a
-                                    href="/list"
-                                    class="item-link item-content panel-close"
-                                 >
-                                    <div class="item-media">
-                                       <i class="material-icons">
-                                          {L("contacts")}
-                                       </i>
-                                    </div>
-                                    <div class="item-inner">
-                                       <div class="item-title">
-                                          {L("List of People")}
-                                       </div>
-                                    </div>
-                                 </a>
-                              </li>
                               {pagesMenu.map((p) => {
                                  return (
                                     <li>
